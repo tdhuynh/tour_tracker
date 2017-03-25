@@ -6,5 +6,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', IndexView.as_view(), name='index_view'),
     url(r'^new_user/$', UserCreateView.as_view(), name='user_create_view'),
-
+    
 ]
