@@ -11,9 +11,18 @@ def create_user_profile(**kwargs):
         Profile.objects.create(user=instance)
 
 
+class Artist(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return str(self.name)
+
+
 class Profile(models.Model):
     user = models.OneToOneField('auth.User')
     joined = models.DateTimeField(auto_now_add=True)
+    artists = models.ManyToManyField(Artist)
+    location = models.CharField(max_length=100)
 
     def __str__(self):
         return str(self.user.id)
